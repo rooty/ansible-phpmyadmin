@@ -1,5 +1,7 @@
 ---
-- name: Ensure phpMyAdmin is installed.
-  yum: name=phpmyadmin state=present enablerepo={{ phpmyadmin_enablerepo }}
-  register: my_result
-  until: my_result is succeeded
+- name: Install phpMyAdmin
+  shell: |
+    curl -O https://files.phpmyadmin.net/phpMyAdmin/4.7.5/phpMyAdmin-4.7.5-all-languages.tar.gz
+    tar -zxvf phpMyAdmin-4.7.5-all-languages.tar.gz
+    mv phpMyAdmin-4.7.5-all-languages /usr/share/phpmyadmin
+    cp /usr/share/phpmyadmin/config.sample.inc.php /usr/share/phpmyadmin/config.inc.php
