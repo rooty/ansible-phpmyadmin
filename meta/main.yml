@@ -1,6 +1,7 @@
 ---
 galaxy_info:
   author: rooty
+  role_name: phpmyadmin
   description: phpMyAdmin installation for Linux
   company: "BlackRoot kft"
   license: "license MIT"
