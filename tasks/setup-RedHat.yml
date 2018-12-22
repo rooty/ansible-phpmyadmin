@@ -6,26 +6,3 @@
     mv phpMyAdmin-4.7.5-all-languages /usr/share/phpmyadmin
     cp /usr/share/phpmyadmin/config.sample.inc.php /usr/share/phpmyadmin/config.inc.php
 
-- name: Disable file_cache
-  become: true
-  lineinfile:
-    dest: /etc/php-fpm.d/www.conf
-    regexp: '^php_value[opcache.file_cache]  = /var/lib/php/fpm/opcache'
-    line: ';php_value[opcache.file_cache]  = /var/lib/php/fpm/opcache'
-  notify: restart php7-fpm on centos
-
-- name: Disable wsdl_cache_dir
-  become: true
-  lineinfile:
-    dest: /etc/php-fpm.d/www.conf
-    regexp: '^php_value[soap.wsdl_cache_dir]  = /var/lib/php/fpm/wsdlcache'
-    line: ';php_value[soap.wsdl_cache_dir]  = /var/lib/php/fpm/wsdlcache'
-  notify: restart php7-fpm on centos
-
-- name: Disable file_cache
-  become: true
-  lineinfile:
-    dest: /etc/php-fpm.d/www.conf
-    regexp: '^php_value[session.save_path]    = /var/lib/php/fpm/session'
-    line: ';php_value[session.save_path]    = /var/lib/php/fpm/session'
-  notify: restart php7-fpm on centos
