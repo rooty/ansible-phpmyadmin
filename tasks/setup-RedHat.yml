@@ -1,0 +1,5 @@
+---
+- name: Ensure phpMyAdmin is installed.
+  yum: name=phpmyadmin state=present enablerepo={{ phpmyadmin_enablerepo }}
+  register: my_result
+  until: my_result is succeeded

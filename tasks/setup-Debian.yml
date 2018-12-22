@@ -1,0 +1,5 @@
+---
+- name: Ensure phpMyAdmin is installed.
+  apt: name=phpmyadmin state=present
+  register: my_result
+  until: my_result is succeeded
